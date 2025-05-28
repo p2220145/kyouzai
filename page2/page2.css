@@ -1,0 +1,205 @@
+/* Google Fontsの読み込み（HTMLにも記述済み） */
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap');
+
+:root {
+    /* 色の定義 - トップページと共通の色を保持 */
+    --main-bg-color: #F8F9FA;
+    --header-bg-color: #E6F3F9;
+    --accent-color: #66C2FF;
+    --text-color: #333333;
+    --card-bg-color: #FFFFFF; /* 各画像項目の背景色に利用 */
+    --border-color: #DDDDDD;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* ヘッダー */
+header {
+    background-color: var(--header-bg-color);
+    color: var(--text-color);
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    border-bottom: 4px solid var(--accent-color);
+    position: relative; /* ホームボタンの配置基準 */
+}
+
+.header-content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header h1 {
+    font-size: 2.2em;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+header .subtitle {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #666;
+}
+
+/* ホームボタン */
+.home-button {
+    position: absolute; /* ヘッダーに対して絶対配置 */
+    top: 20px;
+    left: 20px;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 25px; /* 角丸で可愛らしく */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+    background-color: #55B2EE; /* ホバーで色を変える */
+}
+
+/* 導入セクション - トップページと共通のスタイル */
+.intro-section {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    font-size: 1.1em;
+    color: #555;
+    animation: fadeIn 1s ease-out;
+}
+
+/* 画像ギャラリー */
+.image-gallery {
+    max-width: 800px; /* PCでの最大幅を調整 */
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex; /* Flexboxを使って画像を並べる */
+    flex-direction: column; /* 縦に並べる */
+    gap: 30px; /* 各画像アイテム間のスペース */
+}
+
+.image-item {
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+   
+    overflow: hidden; /* 画像がはみ出さないように */
+    padding-bottom: 20px; /* 下部に余白 */
+    text-align: center; /* 画像とタイトルを中央揃えに */
+}
+
+.image-item h3 {
+    font-size: 1.5em; /* タイトルを大きく */
+    color: var(--accent-color);
+    padding: 20px 15px 10px; /* 上下の余白調整 */
+    margin: 0;
+}
+
+.image-item img {
+    max-width: 90%; /* 親要素の幅に合わせて縮小 */
+    height: auto;
+    display: block; /* 画像の下の余白をなくす */
+    margin: 0 auto; /* 中央揃え */
+  
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-item p {
+    font-size: 1.1em; /* 説明文の文字サイズ */
+    padding: 15px 25px 0; /* 余白 */
+    color: #555;
+    text-align: left; /* 説明文は左揃え */
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    background-color: var(--header-bg-color);
+    color: #777;
+    font-size: 0.9em;
+    border-top: 2px solid var(--border-color);
+    position: relative; /* フッターのホームボタンの位置基準 */
+}
+
+.footer-home-button {
+    display: inline-block; /* ボタンとして表示 */
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    margin-top: 15px; /* フッター内の上部余白 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.footer-home-button:hover {
+    background-color: #55B2EE;
+}
+
+
+/* アニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* レスポンシブ対応 (スマートフォン向け) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+    header .subtitle {
+        font-size: 1em;
+    }
+    .home-button {
+        top: 10px;
+        left: 10px;
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+    .intro-section {
+        margin: 20px auto;
+        font-size: 1em;
+        padding: 15px;
+    }
+    .image-gallery {
+        padding: 0 15px;
+        gap: 20px;
+    }
+    .image-item h3 {
+        font-size: 1.3em;
+        padding: 15px 10px 8px;
+    }
+    .image-item p {
+        font-size: 1em;
+        padding: 10px 20px 0;
+    }
+}
