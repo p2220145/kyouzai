@@ -1,0 +1,171 @@
+/* Google Fontsの読み込み（HTMLにも記述済み） */
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap');
+
+:root {
+    /* 色の定義 */
+    --main-bg-color: #F8F9FA; /* 明るい背景色 */
+    --header-bg-color: #E6F3F9; /* ヘッダーの優しい青 */
+    --accent-color: #66C2FF; /* アクセントカラー（明るい水色） */
+    --text-color: #333333; /* 濃いグレーの文字色 */
+    --card-bg-color: #FFFFFF; /* カードの背景色 */
+    --border-color: #DDDDDD; /* 枠線の色 */
+    --shadow-color: rgba(0, 0, 0, 0.08); /* 影の色 */
+}
+
+body {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%; /* iOSでの文字サイズ調整 */
+}
+
+/* ヘッダー */
+header {
+    background-color: var(--header-bg-color);
+    color: var(--text-color);
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    border-bottom: 4px solid var(--accent-color); /* 下線でアクセント */
+}
+
+.header-content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header .logo {
+    width: 80px; /* ロゴのサイズ調整 */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    font-size: 2.2em; /* タイトルを大きく */
+    color: var(--accent-color); /* アクセントカラーで目立たせる */
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); /* 影で立体感 */
+}
+
+header .subtitle {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #666;
+}
+
+/* 導入セクション */
+.intro-section {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--card-bg-color);
+    border-radius: 15px; /* 角を丸く */
+    box-shadow: 0 4px 8px var(--shadow-color);
+    font-size: 1.1em;
+    color: #555;
+    animation: fadeIn 1s ease-out; /* ふわっと表示 */
+}
+
+/* カードグリッド */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* レスポンシブ対応 */
+    gap: 25px; /* カード間のスペース */
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.card-item {
+    background-color: var(--card-bg-color);
+    border-radius: 15px; /* 角を丸く */
+    box-shadow: 0 5px 15px var(--shadow-color);
+    text-decoration: none; /* 下線を消す */
+    color: var(--text-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* ホバー時のアニメーション */
+    overflow: hidden; /* 画像がはみ出さないように */
+    display: flex; /* カード全体をリンクにするため */
+    flex-direction: column; /* 画像とタイトルを縦に並べる */
+}
+
+.card-item:hover {
+    transform: translateY(-5px); /* 少し持ち上がる */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* 影を濃くする */
+}
+
+.card-image-wrapper {
+    width: 100%;
+    padding-top: 56.25%; /* 16:9のアスペクト比を維持 */
+    position: relative;
+    background-color: #f0f0f0; /* 画像がない場合の背景 */
+}
+
+.card-image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像をカバー表示 */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.card-item h3 {
+    font-size: 1.3em; /* タイトルを大きく */
+    font-weight: bold;
+    text-align: center;
+    padding: 15px 10px;
+    margin: 0;
+    color: var(--accent-color); /* アクセントカラー */
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    background-color: var(--header-bg-color);
+    color: #777;
+    font-size: 0.9em;
+    border-top: 2px solid var(--border-color);
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* レスポンシブ対応 (スマートフォン向け) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+    header .subtitle {
+        font-size: 1em;
+    }
+    .intro-section {
+        margin: 20px auto;
+        font-size: 1em;
+        padding: 15px;
+    }
+    .card-grid {
+        grid-template-columns: 1fr; /* スマホでは1列表示 */
+        padding: 0 15px;
+    }
+    .card-item h3 {
+        font-size: 1.2em;
+    }
+}
